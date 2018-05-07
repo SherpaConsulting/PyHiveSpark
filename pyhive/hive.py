@@ -284,6 +284,8 @@ class Cursor(common.DBAPICursor):
         else:
             sql = operation % _escaper.escape_args(parameters)
 
+        sql = sql.replace("default.", "")
+
         self._reset_state()
 
         self._state = self._STATE_RUNNING
