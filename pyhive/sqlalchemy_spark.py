@@ -7,7 +7,7 @@ which is released under the MIT license.
 
 from __future__ import absolute_import
 from __future__ import unicode_literals
-from pyhive.sqlalchemy_hive import HiveDialect, StrictVersion, HiveTypeCompiler
+from pyhive.sqlalchemy_hive import HiveDialect, HiveTypeCompiler
 import sqlalchemy
 
 
@@ -43,12 +43,5 @@ class SparkDialect(HiveDialect):
             query += ' IN ' + self.identifier_preparer.quote_identifier(schema)
         return connection.execute(query)
 
-if StrictVersion(sqlalchemy.__version__) < StrictVersion('0.7.0'):
-    from pyhive import sqlalchemy_backports
 
-    def reflecttable(self, connection, table, include_columns=None, exclude_columns=None):
-        insp = sqlalchemy_backports.Inspector.from_engine(connection)
-        return insp.reflecttable(table, include_columns, exclude_columns)
-    HiveDialect.reflecttable = reflecttable
-else:
-    HiveDialect.type_compiler = HiveTypeCompiler
+HiveDialect.type_compiler = HiveTypeCompiler
