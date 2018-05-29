@@ -61,14 +61,14 @@ setup(
     },
     entry_points={
         'sqlalchemy.dialects': [
-            'hive = pyhive.sqlalchemy_hive:HiveDialect',
-            'spark = pyhive.sqlalchemy_spark:SparkDialect',
+            'hive2 = pyhive.sqlalchemy_hive:HiveDialect',
+            'hive = pyhive.sqlalchemy_spark:SparkDialect',
             'presto = pyhive.sqlalchemy_presto:PrestoDialect',
         ],
         # Version 0.5
         'sqlalchemy.databases': [
-            'hive = pyhive.sqlalchemy_hive:HiveDialect',
-            'spark = pyhive.sqlalchemy_spark:SparkDialect',
+            'hive2 = pyhive.sqlalchemy_hive:HiveDialect',
+            'hive = pyhive.sqlalchemy_spark:SparkDialect',
             'presto = pyhive.sqlalchemy_presto:PrestoDialect',
         ],
     }

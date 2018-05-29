@@ -12,7 +12,7 @@ import sqlalchemy
 
 
 class SparkDialect(HiveDialect):
-    name = b'spark'
+    name = b'hive'
 
     def get_schema_names(self, connection, **kw):
         # Equivalent to SHOW DATABASES

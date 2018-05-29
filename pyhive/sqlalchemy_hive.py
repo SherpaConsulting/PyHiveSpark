@@ -178,7 +178,7 @@ class HiveExecutionContext(default.DefaultExecutionContext):
 
 
 class HiveDialect(default.DefaultDialect):
-    name = b'hive'
+    name = b'hive2'
     driver = b'thrift'
     execution_ctx_cls = HiveExecutionContext
     preparer = HiveIdentifierPreparer
