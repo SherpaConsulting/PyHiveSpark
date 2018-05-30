@@ -35,7 +35,7 @@ class SparkDialect(HiveDialect):
         query_result = self._get_table_metadata(connection, schema)
         table_temporary_data = [row.isTemporary for row in query_result
                                 if row.tableName == table_name]
-        return False #len(table_temporary_data) > 0 and table_temporary_data[0]
+        return len(table_temporary_data) > 0 and table_temporary_data[0]
 
     def _get_table_metadata(self, connection, schema):
         query = 'SHOW TABLES'
