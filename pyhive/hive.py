@@ -49,6 +49,7 @@ class HiveParamEscaper(common.ParamEscaper):
             .replace('\r', '\\r')
             .replace('\n', '\\n')
             .replace('\t', '\\t')
+            .replace('default.'.'')
         )
 
 
